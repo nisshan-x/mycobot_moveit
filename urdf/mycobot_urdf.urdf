@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<robot  xmlns:xacro="http://www.ros.org/wiki/xacro" name="firefighter" >
+  <xacro:property name="width" value=".2" />
+  <material name="dark blue">
+    <color rgba="0.1 0.1 0.9 1"/>
+  </material>
+  <material name="gray">
+    <color rgba="0.4 0.4 0.4 1"/>
+  </material>
+
+  <link name="base_link"/>
+
+  <!-- body joint & link -->
+  <joint name="body_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="body_link"/>
+  </joint>
+
+  <link name="body_link">
+    <collision>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <mesh filename="package://myCobotROS/urdf/joint1.dae" />
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint1.dae" /> -->
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <mesh filename="package://myCobotROS/urdf/joint1.dae" />
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint1.dae" /> -->
+      </geometry>
+      <material name="dark blue"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <mass value="5"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <!-- arm1 joint & link -->
+  <joint name="arm1_joint" type="revolute">
+    <parent link="body_link"/>
+    <child link="arm1_link"/>
+    <origin xyz= "0 0 0.0706" rpy = "0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.88" upper="2.88" velocity="1.5"/>
+  </joint>
+
+  <link name="arm1_link">
+    <collision>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint2.dae" /> -->
+        <mesh filename="package://myCobotROS/urdf/joint2.dae" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint2.dae" /> -->
+        <mesh filename="package://myCobotROS/urdf/joint2.dae" />
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.075"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- arm2 joint & link -->
+  <joint name="arm2_joint" type="revolute">
+    <parent link="arm1_link"/>
+    <child link="arm2_link"/>
+    <origin xyz= "0.03256 0  0.05976" rpy = "0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-2.88" upper="2.88" velocity="1.5"/>
+  </joint>
+
+  <link name="arm2_link">
+    <collision>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint3.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint3.dae"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz = "0.0 0 0 " rpy = " 0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint3.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint3.dae"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.06"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- arm3 joint & link -->
+  <joint name="arm3_joint" type="revolute">
+    <parent link="arm2_link"/>
+    <child link="arm3_link"/>
+    <origin xyz="0.00272 0 0.1104" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort="30" lower="-2.88" upper="2.88" velocity="1.5"/>
+  </joint>
+
+  <link name="arm3_link">
+    <collision>
+      <origin xyz = "0.0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint4.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint4.dae"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz = "0.0 0 0" rpy = "0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf/mydata_unit_m_in_freecad/joint4.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint4.dae"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.06"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- arm4 joint & link -->
+  <joint name="arm4_joint" type="revolute">
+    <parent link="arm3_link"/>
+    <child link="arm4_link"/>
+    <origin xyz= "-0.00164 0 0.096" rpy = "0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit effort = "1000.0" lower = "-2.88" upper = "2.88" velocity = "0"/>
+  </joint>
+
+  <link name="arm4_link">
+    <collision>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf//mydata_unit_m_in_freecad/joint5.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint5.dae"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf//mydata_unit_m_in_freecad/joint5.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint5.dae"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.06"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- arm5 joint & link -->
+  <joint name="arm5_joint" type="revolute">
+    <parent link="arm4_link"/>
+    <child link="arm5_link"/>
+    <origin xyz= "0.0288 0 0.02976" rpy = "0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" lower="-2.88" upper="2.88" velocity="1.5"/>
+  </joint>
+
+  <link name="arm5_link">
+    <collision>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf//mydata_unit_m_in_freecad/joint6.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint6.dae"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <mesh filename="package://myCobotROS/urdf//mydata_unit_m_in_freecad/joint6.dae"/> -->
+        <mesh filename="package://myCobotROS/urdf/joint6.dae"/>
+      </geometry>
+      <material name="gray"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.06"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- arm6 joint & link -->
+  <joint name="arm6_joint" type="revolute">
+    <parent link="arm5_link"/>
+    <child link="arm6_link"/>
+    <origin xyz="0 0.0456 0.03792" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="30" lower="-3.05" upper="3.05" velocity="1.5"/>
+  </joint>
+
+  <link name="arm6_link">
+    <collision>
+      <origin xyz="0.0 0 0" rpy="1.57075 0 0"/>
+      <geometry>
+        <cylinder length="0.005" radius="0.02"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0.0 0 0" rpy="1.57075 0 0"/>
+      <geometry>
+        <cylinder length="0.005" radius="0.02"/>
+      </geometry>
+      <material name="dark blue"/>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.06"/>
+      <mass value="0.1"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+</robot>

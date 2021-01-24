@@ -1,0 +1,26 @@
+mycobot_trajectory_controller:
+  type: position_controllers/JointTrajectoryController
+  joints:
+    - arm1_joint
+    - arm2_joint
+    - arm3_joint
+    - arm4_joint
+    - arm5_joint
+    - arm6_joint
+  gains:
+    # arm1_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    # arm2_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    # arm3_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    # arm4_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    # arm5_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    # arm6_joint: {p: 1, d: 0.01, i: 0.01, i_clamp: 1}
+    arm1_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+    arm2_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+    arm3_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+    arm4_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+    arm5_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+    arm6_joint: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50

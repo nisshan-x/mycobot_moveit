@@ -1,0 +1,41 @@
+joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 10
+
+position_controller_1:
+  type: "position_controllers/JointPositionController"
+  joint: arm1_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+position_controller_2:
+  type: "position_controllers/JointPositionController"
+  joint: arm2_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+position_controller_3:
+  type: "position_controllers/JointPositionController"
+  joint: arm3_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+position_controller_4:
+  type: "position_controllers/JointPositionController"
+  joint: arm4_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+position_controller_5:
+  type: "position_controllers/JointPositionController"
+  joint: arm5_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+position_controller_6:
+  type: "position_controllers/JointPositionController"
+  joint: arm6_joint
+  pid: {p: 100, d: 1, i: 1, i_clamp: 1}
+
+# position_controller_a:
+#   type: "position_controllers/JointPositionController"
+#   joint: A
+
+# position_controller_b:
+#   type: "position_controllers/JointPositionController"
+#   joint: B
