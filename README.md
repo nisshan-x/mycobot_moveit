@@ -16,7 +16,10 @@ Unofficial myCobot moveit repositiry
 If some errors happen when running moveit, try the following command:  
 `sudo apt install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-joint-state-controller ros-melodic-effort-controllers ros-melodic-position-controllers`
 
-1. Build ROS packages. mycobot_moveit needs [Tiryoh](https://github.com/Tiryoh/mycobot_ros)'s repository (Thank you!).
+3. Install jsk rviz plugin
+`sudo apt install ros-melodic-jsk-visualization`
+
+4. Build ROS packages. mycobot_moveit needs [Tiryoh](https://github.com/Tiryoh/mycobot_ros)'s repository (Thank you!).
 ```
 cd catkin_ws/src
 git clone https://github.com/Tiryoh/mycobot_ros
