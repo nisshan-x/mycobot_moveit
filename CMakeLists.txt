@@ -24,12 +24,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(mycobot_moveit_commander src/mycobot_moveit_commander.cpp)
-add_dependencies(mycobot_moveit_commander ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(mycobot_moveit_commander
-  ${catkin_LIBRARIES}
-)
-
 add_executable(mycobot_control src/mycobot_control.cpp src/mycobot_hw.cpp)
 add_dependencies(mycobot_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(mycobot_control
