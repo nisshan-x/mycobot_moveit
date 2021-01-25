@@ -2,16 +2,21 @@
 Unofficial myCobot moveit repositiry
 
 # Environment
-Ubuntu:18.04
-ROS:melodic
+| item |  |
+|---|---|
+| OS | Ubuntu 18.04 |
+| ROS | melodic |
+| Arm Robot | myCobot |
 
 # Preparation
 1. Install pymycobot. See how to install it. https://github.com/elephantrobotics/pymycobot
 1. Install moveit.
 `sudo apt install ros-melodic-moveit`
-If you have some errors when running moveit, try the following command: ```sudo apt install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-joint-state-controller ros-melodic-effort-controllers ros-melodic-position-controllers```
 
-1. Build ros packages. mycobot_moveit needs [Tiryoh](https://github.com/Tiryoh/mycobot_ros)'s repository (Thank you!).
+If some errors happen when running moveit, try the following command:  
+`sudo apt install ros-melodic-ros-control ros-melodic-ros-controllers ros-melodic-joint-state-controller ros-melodic-effort-controllers ros-melodic-position-controllers`
+
+1. Build ROS packages. mycobot_moveit needs [Tiryoh](https://github.com/Tiryoh/mycobot_ros)'s repository (Thank you!).
 ```
 cd catkin_ws/src
 git clone https://github.com/Tiryoh/mycobot_ros
@@ -21,7 +26,8 @@ catkin_make
 ```
 
 # Usage
-Connect myCobot and PC with USB-C cable, and
+Connect myCobot and PC with USB-C cable, and launch:  
+
 `roslaunch mycobot_moveit mycobot_moveit_control.launch`
 
 Note: Don't forget to provide power via AC adaptor to myCobot.
