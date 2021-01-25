@@ -3,7 +3,7 @@ import subprocess
 import rospy
 
 from std_msgs.msg import Float32MultiArray
-from pythonAPI.mycobot import MyCobot
+from pymycobot.mycobot import MyCobot
 
 class MycobotHwInterface:
     def __init__(self):
@@ -31,7 +31,7 @@ class MycobotHwInterface:
             self.rate_.sleep()
 
     def joint_state_msg_sender(self):
-        angles = self.mycobot_.get_angles_of_radian()
+        angles = self.mycobot_.get_radians()
         for index, value in enumerate(angles):
             if index != 2:
                 value *= -1
@@ -58,7 +58,6 @@ class MycobotHwInterface:
             # print type(data.position[0])
             rospy.loginfo(rospy.get_caller_id() + "%s", msg.data)
             self.mycobot_.send_radians(data_list, 80)
-            # self.mycobot_.send_angles_by_radian(data_list, 80)
             self.pre_data_list = []
             for value in data_list:
                 self.pre_data_list.append(value)
