@@ -58,6 +58,6 @@
     <node name="mycobot_control" pkg="mycobot_moveit" type="mycobot_control" output="screen" respawn="false" />
 
     <!-- HW Interface -->
-    <node pkg="myCobotROS" name="mycobot_moveit" type="mycobot_hw_interface.py"/>
+    <node name="hardware_interface" pkg="mycobot_moveit" type="mycobot_hw_interface.py"/>
 
 </launch>

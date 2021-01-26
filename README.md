@@ -9,7 +9,7 @@ Unofficial myCobot moveit repositiry
 | Arm Robot | myCobot |
 
 # Preparation
-1. Install pymycobot. See how to install it. https://github.com/elephantrobotics/pymycobot
+1. Install pymycobot. See how to install it. https://github.com/elephantrobotics/pymycobot(Atom v2.4, pymycobot==2.1.2)
 1. Install moveit.
 `sudo apt install ros-melodic-moveit`
 
@@ -25,6 +25,7 @@ cd catkin_ws/src
 git clone https://github.com/Tiryoh/mycobot_ros
 git clone https://github.com/nisshan-x/mycobot_moveit
 rosdep update
+rosdep install -i --from-paths mycobot_moveit
 catkin_make
 ```
 
