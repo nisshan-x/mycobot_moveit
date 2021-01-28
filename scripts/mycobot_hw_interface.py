@@ -1,13 +1,20 @@
 #!/usr/bin/env python2
 import subprocess
 import rospy
+import rosparam
 
 from std_msgs.msg import Float32MultiArray
 from pymycobot.mycobot import MyCobot
+from pymycobot.genre import Angle
 
 class MycobotHwInterface:
     def __init__(self):
-        port = subprocess.check_output(['echo -n /dev/ttyUSB*'], shell=True)
+        port_str = rospy.get_param("/hardware_interface/mycobot_port", "default")
+        if port_str == "default":
+            port = subprocess.check_output(['echo -n /dev/ttyUSB*'], shell=True)
+        else:
+            port = subprocess.check_output(['echo -n ' + port_str], shell=True)
+
         self.mycobot_ = MyCobot(port)
         self.mycobot_.power_on()
 
@@ -55,7 +62,6 @@ class MycobotHwInterface:
             self.first_flag = False
 
         if self.pre_data_list != data_list:
-            # print type(data.position[0])
             rospy.loginfo(rospy.get_caller_id() + "%s", msg.data)
             self.mycobot_.send_radians(data_list, 80)
             self.pre_data_list = []
