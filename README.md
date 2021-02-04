@@ -9,7 +9,7 @@ Unofficial myCobot moveit repositiry
 | Arm Robot | myCobot |
 
 # Preparation
-1. Install pymycobot. See how to install it. https://github.com/elephantrobotics/pymycobot (Atom v2.4, pymycobot V2.1.2)
+1. Install pymycobot. See how to install it. https://github.com/elephantrobotics/pymycobot (AtomMain2.5 + pymycobot v2.2.0, or AtomMain2.4 + pymycobot v2.1.2)
 
 2. Build ROS packages. mycobot_moveit needs [Tiryoh](https://github.com/Tiryoh/mycobot_ros)'s repository (Thank you!).
 ```
