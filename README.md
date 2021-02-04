@@ -1,6 +1,8 @@
 # mycobot_moveit
 Unofficial myCobot moveit repositiry
 
+[![](https://github.com/nisshan-x/mycobot_moveit/workflows/CI/badge.svg)](https://github.com/nisshan-x/mycobot_moveit/actions)
+
 # Environment
 | item |  |
 |---|---|
