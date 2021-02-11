@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import subprocess
 import rospy
 import rosparam
@@ -11,9 +11,9 @@ class MycobotHwInterface:
     def __init__(self):
         port_str = rospy.get_param("/hardware_interface/mycobot_port", "default")
         if port_str == "default":
-            port = subprocess.check_output(['echo -n /dev/ttyUSB*'], shell=True)
+            port = subprocess.check_output(['echo -n /dev/ttyUSB*'], shell=True).decode()
         else:
-            port = subprocess.check_output(['echo -n ' + port_str], shell=True)
+            port = subprocess.check_output(['echo -n ' + port_str], shell=True).decode()
 
         self.mycobot_ = MyCobot(port)
         self.mycobot_.power_on()
