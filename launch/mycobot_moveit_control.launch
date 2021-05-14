@@ -58,6 +58,8 @@
     <node name="mycobot_control" pkg="mycobot_moveit" type="mycobot_control" output="screen" respawn="false" />
 
     <!-- HW Interface -->
-    <node name="hardware_interface" pkg="mycobot_moveit" type="mycobot_hw_interface.py"/>
+    <node name="hardware_interface" pkg="mycobot_moveit" type="mycobot_hw_interface.py" output="screen">
+        <param name="mycobot_port" value="/dev/ttyUSB0"/>
+    </node>
 
 </launch>
