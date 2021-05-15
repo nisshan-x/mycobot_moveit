@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
-  <arg name="model" default="$(find myCobotROS)/urdf/mycobot_urdf_gazebo.urdf" />
+  <arg name="model" default="$(find mycobot_moveit)/urdf/mycobot_urdf_gazebo.urdf" />
   <param name="robot_description" textfile="$(arg model)" />
 
   <!-- gazebo world -->
@@ -24,10 +24,10 @@
   </group>
 
   <arg name="planning_adapters" value="default_planner_request_adapters/AddTimeParameterization
-				       default_planner_request_adapters/FixWorkspaceBounds
-				       default_planner_request_adapters/FixStartStateBounds
-				       default_planner_request_adapters/FixStartStateCollision
-				       default_planner_request_adapters/FixStartStatePathConstraints" />
+      default_planner_request_adapters/FixWorkspaceBounds
+      default_planner_request_adapters/FixStartStateBounds
+      default_planner_request_adapters/FixStartStateCollision
+      default_planner_request_adapters/FixStartStatePathConstraints" />
 
   <node name="move_group"  pkg="moveit_ros_move_group" type="move_group" respawn="false" output="screen" args="">
     <!-- Set the display variable, in case OpenGL code is used internally -->
@@ -51,5 +51,5 @@
   </node>
 
   <!-- Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_moveit)/rviz/display.rviz"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_moveit)/rviz/moveit.rviz"/>
 </launch>
